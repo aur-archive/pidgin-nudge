@@ -1,0 +1,26 @@
+# Maintainer: Det
+# Contributor: peace4all <markspost at rocketmail dot com>
+# Contributor: JokerBoy (www.punctweb.ro)
+
+pkgname=pidgin-nudge
+pkgver=0.1r9
+pkgrel=1
+pkgdesc="A Pidgin plugin for shaking the conversation window on nudges/buzzes"
+arch=('i686' 'x86_64')
+url="https://code.google.com/p/pidgin-nudge/"
+license=('GPL2')
+depends=('pidgin')
+source=('https://pidgin-nudge.googlecode.com/svn/trunk/Makefile'
+        'https://pidgin-nudge.googlecode.com/svn/trunk/pidginnudge.c')
+md5sums=('5b96bcf53911fef996e082b7e6090a00'
+         '44170a81cc15d1d865ff788266fe4c93')
+
+build() {
+  msg2 "Starting make..."
+  make
+}
+
+package() {
+  msg2 "Starting make install..."
+  make DESTDIR="$pkgdir" install
+}
